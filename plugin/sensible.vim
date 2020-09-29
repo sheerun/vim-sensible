@@ -9,7 +9,13 @@ else
 endif
 
 if has('autocmd')
-  filetype plugin indent on
+  if !exists("did_load_filetypes")
+    filetype plugin on
+  endif
+
+  if !exists("did_indent_on")
+    filetype indent on
+  endif
 endif
 if has('syntax') && !exists('g:syntax_on')
   syntax enable
